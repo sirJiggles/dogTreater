@@ -1,2 +1,2 @@
-class Treat < ActiveRecord::Base
+class Treat < ApplicationRecord
 end

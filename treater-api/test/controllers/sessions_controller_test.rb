@@ -1,49 +1,38 @@
 require 'test_helper'
 
-class SessionsControllerTest < ActionController::TestCase
+class SessionsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @session = sessions(:one)
   end
 
   test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:sessions)
-  end
-
-  test "should get new" do
-    get :new
+    get sessions_url
     assert_response :success
   end
 
   test "should create session" do
     assert_difference('Session.count') do
-      post :create, session: { date: @session.date }
+      post sessions_url, params: { session: { treat_id: @session.treat_id, user_id: @session.user_id } }
     end
 
-    assert_redirected_to session_path(assigns(:session))
+    assert_response 201
   end
 
   test "should show session" do
-    get :show, id: @session
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, id: @session
+    get session_url(@session)
     assert_response :success
   end
 
   test "should update session" do
-    patch :update, id: @session, session: { date: @session.date }
-    assert_redirected_to session_path(assigns(:session))
+    patch session_url(@session), params: { session: { treat_id: @session.treat_id, user_id: @session.user_id } }
+    assert_response 200
   end
 
   test "should destroy session" do
     assert_difference('Session.count', -1) do
-      delete :destroy, id: @session
+      delete session_url(@session)
     end
 
-    assert_redirected_to sessions_path
+    assert_response 204
   end
 end

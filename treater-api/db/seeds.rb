@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 
 # Create the users
 gareth = User.crate(name: 'Gareth Fuller')
@@ -22,3 +15,6 @@ bone = Treat.create(name: 'Bone', type: 'large', health: 2)
 
 
 # Create some sessions of treats with the sample users
+session1 = Session.create(user: gareth, treat: pelet, created_at: 1.days.ago)
+session2 = Session.create(user: lisa, treat: chicken_stick, created_at: 2.days.ago)
+session2 = Session.create(user: lisa, treat: duck_stick, created_at: 3.days.ago)

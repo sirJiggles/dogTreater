@@ -1,49 +1,38 @@
 require 'test_helper'
 
-class TreatsControllerTest < ActionController::TestCase
+class TreatsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @treat = treats(:one)
   end
 
   test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:treats)
-  end
-
-  test "should get new" do
-    get :new
+    get treats_url
     assert_response :success
   end
 
   test "should create treat" do
     assert_difference('Treat.count') do
-      post :create, treat: { health: @treat.health, name: @treat.name, type: @treat.type }
+      post treats_url, params: { treat: { health: @treat.health, name: @treat.name, type: @treat.type } }
     end
 
-    assert_redirected_to treat_path(assigns(:treat))
+    assert_response 201
   end
 
   test "should show treat" do
-    get :show, id: @treat
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, id: @treat
+    get treat_url(@treat)
     assert_response :success
   end
 
   test "should update treat" do
-    patch :update, id: @treat, treat: { health: @treat.health, name: @treat.name, type: @treat.type }
-    assert_redirected_to treat_path(assigns(:treat))
+    patch treat_url(@treat), params: { treat: { health: @treat.health, name: @treat.name, type: @treat.type } }
+    assert_response 200
   end
 
   test "should destroy treat" do
     assert_difference('Treat.count', -1) do
-      delete :destroy, id: @treat
+      delete treat_url(@treat)
     end
 
-    assert_redirected_to treats_path
+    assert_response 204
   end
 end
