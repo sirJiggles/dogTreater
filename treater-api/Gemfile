@@ -9,6 +9,9 @@ gem 'pg'
 # gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma'
+
+gem "active_model_serializers", github: "rails-api/active_model_serializers", tag: "v0.10.0.rc4"
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.0'
 # Use Redis adapter to run Action Cable in production

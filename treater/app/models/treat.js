@@ -4,5 +4,5 @@ export default DS.Model.extend({
   name: DS.attr('string'),
   size: DS.attr('string'),
   health: DS.attr('number'),
-  sessions: DS.hasMany('session')
+  sessions: DS.hasMany('session', { async: true })
 });
