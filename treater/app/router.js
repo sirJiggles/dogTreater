@@ -8,7 +8,7 @@ var Router = Ember.Router.extend({
 Router.map(function() {
   this.route('users');
   this.route('treats');
-  this.route('sessions');
+  this.route('sessions', { path: '/sessions' });
 });
 
 export default Router;

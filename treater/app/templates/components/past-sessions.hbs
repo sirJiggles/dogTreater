@@ -1,0 +1,33 @@
+<ul class="mdl-grid">
+  {{#each session in sessions}}
+    <li class="mdl-card mdl-cell mdl-cell--4-col mdl-shadow--2dp">
+      <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">{{session.user.name}}</h2>
+      </div>
+      <div class="mdl-card__media">
+        <img src="http://placepu.gs/300/15{{session.id}}" />
+      </div>
+      <div class="mdl-card__supporting-text">
+        {{session.treat.name}}
+
+        <ul class="mdl-list">
+          <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+              <i class="material-icons mdl-list__item-icon">local_hospital</i>
+              <span>Health: {{session.treat.health}}</span>
+            </span>
+          </li>
+          <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">
+              <i class="material-icons mdl-list__item-icon">straighten</i>
+              <span>Size: {{session.treat.size}}</span>
+            </span>
+          </li>
+        </ul>
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="(URL or function)">Delete session</a>
+      </div>
+    </li>
+  {{/each}}
+</ul>
