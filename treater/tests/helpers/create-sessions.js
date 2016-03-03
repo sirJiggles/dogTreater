@@ -22,8 +22,4 @@ export default function(amount) {
 
   // return the mock
   return sessions;
-};
-
-// export default Ember.Test.registerHelper('createSessions', function(app, amount) {
-//
-// });
+}

@@ -1,30 +1,16 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import createSessions from '../../helpers/create-sessions';
-// import startApp from '../../helpers/start-app';
-// import Ember from 'ember';
-
-// var App,
-//     createSessions;
 
 import hbs from 'htmlbars-inline-precompile';
 
 moduleForComponent('past-sessions', 'Integration | Component | past sessions', {
   integration: true
-
-  // beforeEach: function() {
-  //   App = startApp();
-  // },
-  // afterEach: function() {
-  //   Ember.run(App, App.destroy);
-  // }
 });
 
 test('it shows 3 sessions', function(assert) {
 
   // create a mock of sessions in the past
   var model = createSessions(3);
-
-  console.log(model);
 
   // set the model we mocked
   this.set('model', model);
