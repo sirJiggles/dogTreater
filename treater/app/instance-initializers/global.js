@@ -1,6 +1,6 @@
 export function initialize(application) {
   // now have access to store on console, shazam
-  application.store = application.container.lookup("service:store");
+  application.store = application.lookup("service:store");
   window.App = application;  // or window.Whatever
 }
 
