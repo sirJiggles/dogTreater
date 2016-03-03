@@ -1,8 +1,8 @@
-<ul class="mdl-grid">
+<ul class="mdl-grid sessions">
   {{#each sessions as |session|}}
-    <li class="mdl-card mdl-cell mdl-cell--4-col mdl-shadow--2dp">
+    <li class="mdl-card mdl-cell mdl-cell--4-col mdl-shadow--2dp sessions__session">
       <div class="mdl-card__title">
-        <h2 class="mdl-card__title-text">{{session.user.name}}</h2>
+        <h2 class="mdl-card__title-text sessions__session__title">{{session.user.name}}</h2>
       </div>
       <div class="mdl-card__media">
         <img src="http://placepu.gs/500/20{{session.id}}" />

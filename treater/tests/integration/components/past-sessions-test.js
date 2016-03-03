@@ -1,26 +1,50 @@
 import { moduleForComponent, test } from 'ember-qunit';
+import createSessions from '../../helpers/create-sessions';
+// import startApp from '../../helpers/start-app';
+// import Ember from 'ember';
+
+// var App,
+//     createSessions;
+
 import hbs from 'htmlbars-inline-precompile';
 
 moduleForComponent('past-sessions', 'Integration | Component | past sessions', {
   integration: true
+
+  // beforeEach: function() {
+  //   App = startApp();
+  // },
+  // afterEach: function() {
+  //   Ember.run(App, App.destroy);
+  // }
 });
 
-test('it renders', function(assert) {
-  assert.expect(2);
+test('it shows 3 sessions', function(assert) {
 
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+  // create a mock of sessions in the past
+  var model = createSessions(3);
 
-  this.render(hbs`{{past-sessions}}`);
+  console.log(model);
 
-  assert.equal(this.$().text().trim(), '');
+  // set the model we mocked
+  this.set('model', model);
 
-  // Template block usage:
-  this.render(hbs`
-    {{#past-sessions}}
-      template block text
-    {{/past-sessions}}
-  `);
+  // render the component with the fake sessions
+  this.render(hbs`{{past-sessions sessions=model}}`);
 
-  assert.equal(this.$().text().trim(), 'template block text');
+  // Get handle to the dom component
+  var $sessions = this.$('.sessions');
+
+  assert.equal(
+    $sessions.find('.sessions__session').length,
+    3,
+    'Three sessions rendered'
+  );
+
+  // check the content matches against our model
+  assert.equal(
+    $sessions.find('.sessions__session__title:eq(0)').text(),
+    model[0].user.name,
+    'title of first session matches title of first session on model'
+  );
 });
