@@ -24,8 +24,8 @@ before_script:
   - ember start-sauce-connect
 
 script:
-  - ember test --launch='SL_firefox_public_Windows_7,SL_internet_explorer_public_11_Windows_8_1' --port=8080
-
+  - ember test --launch='SL_firefox_public_Windows_7,SL_internet_explorer_public_11_Windows_8_1,SL_firefox_public_OS_X_10_11,SL_internet_explorer_public_10_Windows,SL_Chrome_public_Windows,SL_chrome_public_OS_X_10_11,SL_safari_public_OS_X_10_11'
+  
 after_script:
   # Destroy the sauce tunnel
   - ember stop-sauce-connect
