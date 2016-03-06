@@ -51,11 +51,11 @@
         "-b",
         "internet explorer",
         "-v",
-        "10",
+        "10.0",
         "--vi",
         "public",
         "-p",
-        "Windows",
+        "Windows 7",
         "--at",
         "--no-ct",
         "--u"
@@ -100,22 +100,6 @@
         "sauce:launch",
         "-b",
         "chrome",
-        "--vi",
-        "public",
-        "-p",
-        "OS X 10.11",
-        "--at",
-        "--no-ct",
-        "--u"
-      ],
-      "protocol": "browser"
-    },
-    "SL_safari_public_OS_X_10_11": {
-      "exe": "ember",
-      "args": [
-        "sauce:launch",
-        "-b",
-        "safari",
         "--vi",
         "public",
         "-p",
