@@ -19,5 +19,12 @@ install:
   - npm install
   - bower install
 
+before_script:
+  - ember start-sauce-connect
+
 script:
-  - npm test
+  - ember test --launch='SL_firefox_public_Windows_7,SL_internet_explorer_public_11_Windows_8_1' --port=8080
+
+after_script:
+  # Destroy the sauce tunnel
+  - ember stop-sauce-connect
