@@ -1,6 +1,5 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import createSessions from '../../helpers/create-sessions';
-
 import hbs from 'htmlbars-inline-precompile';
 
 moduleForComponent('past-sessions', 'Integration | Component | past sessions', {
