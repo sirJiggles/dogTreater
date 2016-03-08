@@ -11,12 +11,19 @@ moduleForComponent('past-sessions', 'Integration | Component | past sessions', {
 
 test('it shows 3 sessions', function(assert) {
   // create a mock of sessions in the past using MIRAGE!!!
-  const MODEL = server.createList('session', 3);
-
-  console.log(MODEL);
+  let users = server.createList('user', 3);
+  let treats = server.createList('treat', 3);
+  let thing = server.create('session', {userId: users[0].id, treatId: treats[0].id});
+  console.log(thing);
+  let model = [];
+  for (let i=0; i<3; i++) {
+    model.push(
+      server.create('session', {userId: users[i].id, treatId: treats[i].id})
+    );
+  }
 
   // set the model we mocked
-  this.set('model', MODEL);
+  this.set('model', model);
 
   // render the component with the fake sessions
   this.render(hbs`{{past-sessions sessions=model}}`);
@@ -33,7 +40,7 @@ test('it shows 3 sessions', function(assert) {
   // check the content matches against our model
   assert.equal(
     $sessions.find('.sessions__session__title:eq(0)').text(),
-    MODEL[0].user.name,
+    model[0].user.name,
     'title of first session matches title of first session on model'
   );
 });
