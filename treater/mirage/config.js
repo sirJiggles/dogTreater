@@ -7,7 +7,7 @@ export default function() {
 
     Note: these only affect routes defined *after* them!
   */
-  this.urlPrefix = 'http://localhost:3000';
+
   // this.urlPrefix = '';    // make this `http://localhost:8080`, for example, if your API is on a different server
   // this.namespace = '';    // make this `api`, for example, if your API is namespaced
   // this.timing = 400;      // delay for each request, automatically set to 0 during testing
@@ -21,7 +21,7 @@ export default function() {
     this.put('/posts/:id'); // or this.patch
     this.del('/posts/:id');
   */
- this.get('/sessions');
- this.get('/users');
- this.get('/treats');
+  this.get('/sessions');
+  this.get('/users');
+  this.get('/treats');
 }

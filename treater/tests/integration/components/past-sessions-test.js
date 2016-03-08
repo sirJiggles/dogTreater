@@ -1,15 +1,19 @@
 import { moduleForComponent, test } from 'ember-qunit';
-import createSessions from '../../helpers/create-sessions';
 import hbs from 'htmlbars-inline-precompile';
+import startMirage from '../../helpers/setup-mirage-for-integration';
 
 moduleForComponent('past-sessions', 'Integration | Component | past sessions', {
-  integration: true
+  integration: true,
+  setup: function() {
+    startMirage(this.container);
+  }
 });
 
 test('it shows 3 sessions', function(assert) {
+  // create a mock of sessions in the past using MIRAGE!!!
+  const MODEL = server.createList('session', 3);
 
-  // create a mock of sessions in the past
-  const MODEL = createSessions(3);
+  console.log(MODEL);
 
   // set the model we mocked
   this.set('model', MODEL);
