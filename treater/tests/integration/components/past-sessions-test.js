@@ -13,13 +13,13 @@ test('it shows 3 sessions', function(assert) {
   // create a mock of sessions in the past using MIRAGE!!!
   let users = server.createList('user', 3);
   let treats = server.createList('treat', 3);
-  let thing = server.create('session', {userId: users[0].id, treatId: treats[0].id});
-  console.log(thing);
+
   let model = [];
   for (let i=0; i<3; i++) {
-    model.push(
-      server.create('session', {userId: users[i].id, treatId: treats[i].id})
-    );
+    let s = server.create('session');
+    s.user = users[i];
+    s.treat = treats[i];
+    model.push(s);
   }
 
   // set the model we mocked
