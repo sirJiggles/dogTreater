@@ -1,14 +1,19 @@
 export default function(server) {
+  // The data generated in here is just for development calling
+  // server.loadFixtures does not load these seeds ... helpful right
+  
+  let amountUsers = 2,
+      amountTreats = 6,
+      amountSessions = 3;
 
-  /*
-    Seed your development database using your factories.
-    This data will not be loaded in your tests.
+  let users = server.createList('user', amountUsers);
+  let treats = server.createList('treat', amountTreats);
 
-    Make sure to define a factory for each model you want to create.
-  */
-  server.createList('user', 2);
-  server.createList('treat', 6);
-  server.createList('session', 3);
-
-  // server.createList('post', 10);
+  for(var i = 0; i < amountUsers; i ++) {
+    for(var j = 0; j < amountTreats; j ++) {
+      let s = server.create('session');
+      s.user = users[i];
+      s.treat = treats[j];
+    }
+  }
 }
