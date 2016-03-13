@@ -1,6 +1,6 @@
-import { Model, hasOne } from 'ember-cli-mirage';
+import { Model, belongsTo } from 'ember-cli-mirage';
 
 export default Model.extend({
-  treat: hasOne,
-  user: hasOne
+  treat: belongsTo('treat'),
+  user: belongsTo('user')
 });

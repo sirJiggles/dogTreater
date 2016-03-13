@@ -1,7 +1,7 @@
 export default function(server) {
   // The data generated in here is just for development calling
   // server.loadFixtures does not load these seeds ... helpful right
-  
+
   let amountUsers = 2,
       amountTreats = 6,
       amountSessions = 3;
@@ -11,9 +11,13 @@ export default function(server) {
 
   for(var i = 0; i < amountUsers; i ++) {
     for(var j = 0; j < amountTreats; j ++) {
-      let s = server.create('session');
-      s.user = users[i];
-      s.treat = treats[j];
+      let s = server.create('session', {
+        userId: users[i].id,
+        treatId: treats[j].id
+      });
+      s.save();
+      // s.user = users[i];
+      // s.treat = treats[j];
     }
   }
 }

@@ -22,6 +22,7 @@ export default function() {
     this.del('/posts/:id');
   */
   this.get('/sessions');
-  this.get('/users');
-  this.get('/treats');
+  this.get('/users/:id');
+  this.get('/treats/:id')
+  // this.get('/treats');
 }

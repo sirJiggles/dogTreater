@@ -8,6 +8,6 @@ export default Factory.extend({
     return `Size ${i}`;
   },
   health(i) {
-    return `Helth ${i}`;
+    return i;
   }
 });
