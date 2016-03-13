@@ -27,3 +27,7 @@ test('twelve sessions are rendered', function(assert) {
     );
   });
 });
+
+// test('a user can remove a session from the list', function(assert) {
+//
+// });
