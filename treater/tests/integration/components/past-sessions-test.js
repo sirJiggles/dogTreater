@@ -9,18 +9,10 @@ moduleForComponent('past-sessions', 'Integration | Component | past sessions', {
   }
 });
 
-test('it shows 3 sessions', function(assert) {
-  // create a mock of sessions in the past using MIRAGE!!!
-  let users = server.createList('user', 3);
-  let treats = server.createList('treat', 3);
-
-  let model = [];
-  for (let i=0; i<3; i++) {
-    let s = server.create('session');
-    s.user = users[i];
-    s.treat = treats[i];
-    model.push(s);
-  }
+test('it shows 12 sessions', function(assert) {
+  server.loadFixtures();
+  // use fixtures rather than generate related data
+  let model = server.schema.session.all();
 
   // set the model we mocked
   this.set('model', model);
@@ -33,7 +25,7 @@ test('it shows 3 sessions', function(assert) {
 
   assert.equal(
     $sessions.find('.sessions__session').length,
-    3,
+    12,
     'Three sessions rendered'
   );
 

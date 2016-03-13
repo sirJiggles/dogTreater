@@ -13,18 +13,17 @@ test('visiting /sessions', function(assert) {
 
 });
 
-// test('three sessions are rendered', function(assert) {
-//   // server.loadFixtures();
-//
-//   // console.log(server.get('sessions'));
-//   visit('/sessions');
-//   andThen(function() {
-//     let $sessions = this.$('.sessions');
-//     // console.log($sessions.find('.sessions__session'));
-//     assert.equal(
-//       $sessions.find('.sessions__session').length,
-//       12,
-//       'Twelve sessions'
-//     );
-//   });
-// });
+test('twelve sessions are rendered', function(assert) {
+  // for now the fixtures are a very simular to the scenario file
+  server.loadFixtures();
+
+  visit('/sessions');
+  andThen(function() {
+    let $sessions = this.$('.sessions');
+    assert.equal(
+      $sessions.find('.sessions__session').length,
+      12,
+      'Twelve sessions'
+    );
+  });
+});
