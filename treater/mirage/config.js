@@ -23,6 +23,6 @@ export default function() {
   */
   this.get('/sessions');
   this.get('/users/:id');
-  this.get('/treats/:id')
-  // this.get('/treats');
+  this.get('/treats');
+  this.get('/treats/:id');
 }

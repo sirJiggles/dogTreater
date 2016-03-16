@@ -11,13 +11,10 @@ export default function(server) {
 
   for(var i = 0; i < amountUsers; i ++) {
     for(var j = 0; j < amountTreats; j ++) {
-      let s = server.create('session', {
+      server.create('session', {
         userId: users[i].id,
         treatId: treats[j].id
       });
-      s.save();
-      // s.user = users[i];
-      // s.treat = treats[j];
     }
   }
 }
